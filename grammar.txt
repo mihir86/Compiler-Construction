@@ -1,0 +1,11 @@
+while loop, if statement, assignment statement, declaration statement + variable list
+
+*, +, <, ! (or &&)
+
+keywords:
+
+int float bool
+
+first check in array of keywords
+
+error: alphabet not in language or something
