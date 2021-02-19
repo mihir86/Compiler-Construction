@@ -116,9 +116,8 @@ class Scanner {
                 return INTEGER_LITERAL;
             else
             {
-                c = getChar();
                 while(!program.eof() && !isSeparator(c))
-                    token += c, c = getChar();
+                    c = getChar(), token += c, c = peekChar();
                 throw "Error, " + token + " is not a valid identifier!!!";
             }
         }
@@ -147,9 +146,8 @@ class Scanner {
             }
             else
             {
-                c = getChar();
                 while(!program.eof() && !isSeparator(c))
-                    token += c, c = getChar();
+                    c = getChar(), token += c, c = peekChar();
                 throw "Error, " + token + " is not a valid identifier!!!";
             }
         }
