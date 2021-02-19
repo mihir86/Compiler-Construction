@@ -48,6 +48,16 @@ class Scanner {
         while(!program.eof() && getChar() != '\n')
             ;
     }
+    bool isSeparator(char c)
+    {
+        if(c == '(' || c == ')' || c == '{' || c == '}' || c == ';' || c == ',')
+            return true;
+        if(c == '+' || c == '*' || c == '<' || c == '!' || c == '=')
+            return true;
+        if(c == ' ' || c == '\n')
+            return true;
+        return false;
+    }
     int DFA(int state, string &token)
     {
         if(state == 0)
@@ -102,7 +112,15 @@ class Scanner {
                 token += c;
                 return DFA(1, token);
             }
-            return INTEGER_LITERAL;
+            else if(isSeparator(c))
+                return INTEGER_LITERAL;
+            else
+            {
+                c = getChar();
+                while(!program.eof() && !isSeparator(c))
+                    token += c, c = getChar();
+                throw "Error, " + token + " is not a valid identifier!!!";
+            }
         }
         else
         {
@@ -120,10 +138,20 @@ class Scanner {
                 token += c;
                 return DFA(2, token);
             }
-            for(auto &k: v)
-                if(k.first == token)
-                    return k.second;
-            return IDENTIFIER;
+            else if(isSeparator(c))
+            {
+                for(auto &k: v)
+                    if(k.first == token)
+                        return k.second;
+                return IDENTIFIER;
+            }
+            else
+            {
+                c = getChar();
+                while(!program.eof() && !isSeparator(c))
+                    token += c, c = getChar();
+                throw "Error, " + token + " is not a valid identifier!!!";
+            }
         }
     }
     public:
