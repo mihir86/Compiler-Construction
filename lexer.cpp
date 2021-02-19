@@ -164,7 +164,8 @@ class Scanner {
             {"int", 100},
             {"if", 101},
             {"else", 102},
-            {"while", 103}
+            {"while", 103},
+            {"print", 104}
         }
     {}
     tuple<int, string, int> getToken()
