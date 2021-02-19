@@ -1,0 +1,6 @@
+int a, b, 3x;
+a = 5 + 7x;
+b = 5 + x6;
+if(a < b) {
+    print(kakaka);
+}

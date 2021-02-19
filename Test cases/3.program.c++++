@@ -1,0 +1,9 @@
+# start
+int x_ui9 = +1234;
+int y = 0;
+
+if (y<0)
+    y = y + 1;
+
+else
+    y=0

@@ -1,0 +1,7 @@
+# start
+int x;
+x = 1;
+# a while loop
+while (x < 10) {
+    x = x + 1; #increments x by 1
+}

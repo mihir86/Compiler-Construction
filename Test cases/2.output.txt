@@ -1,0 +1,33 @@
+Token: 100 , String: int , Line number: 1
+Token: 130 , String: a , Line number: 1
+Token: 115 , String: , , Line number: 1
+Token: 130 , String: b , Line number: 1
+Token: 115 , String: , , Line number: 1
+Error, 3x is not a valid identifier!!!
+Token: 114 , String: ; , Line number: 1
+Token: 130 , String: a , Line number: 2
+Token: 124 , String: = , Line number: 2
+Token: 131 , String: 5 , Line number: 2
+Token: 120 , String: + , Line number: 2
+Error, 7x is not a valid identifier!!!
+Token: 114 , String: ; , Line number: 2
+Token: 130 , String: b , Line number: 3
+Token: 124 , String: = , Line number: 3
+Token: 131 , String: 5 , Line number: 3
+Token: 120 , String: + , Line number: 3
+Token: 130 , String: x6 , Line number: 3
+Token: 114 , String: ; , Line number: 3
+Token: 101 , String: if , Line number: 4
+Token: 110 , String: ( , Line number: 4
+Token: 130 , String: a , Line number: 4
+Token: 122 , String: < , Line number: 4
+Token: 130 , String: b , Line number: 4
+Token: 111 , String: ) , Line number: 4
+Token: 112 , String: { , Line number: 4
+Token: 104 , String: print , Line number: 5
+Token: 110 , String: ( , Line number: 5
+Token: 130 , String: kakaka , Line number: 5
+Token: 111 , String: ) , Line number: 5
+Token: 114 , String: ; , Line number: 5
+Token: 113 , String: } , Line number: 6
+Token: 132 , String: FILE_END_REACHED , Line number: 6

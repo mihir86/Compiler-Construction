@@ -188,8 +188,7 @@ int32_t main()
             int id, line;
             string s;
             tie(id, s, line) = token;
-            cout << id << " " << s << " " << line << "\n";
-            if(id == END)
+            cout << "Token: " << id << " , String: " << s << " , Line number: " << line << "\n";            if(id == END)
                 break;
         }
         catch(string error) {
