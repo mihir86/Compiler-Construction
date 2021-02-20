@@ -16,12 +16,21 @@ using namespace std;
 #define INTEGER_LITERAL 131
 #define END 132
 
+//Scanner class that can be initialised with a .c+++ file
+//has only one public constructor, Scanner(string programFile)
+//has one public member function, tuple<int, string, int> getToken() which returns a token
 class Scanner {
+    //current program line number
     int line;
+    //is bufferChar loaded?
     bool bufferCharLoaded;
+    //the buffer character
     char bufferChar;
+    //input stream for program
     ifstream program;
+    //table for keyword lookup
     vector<pair<string, int>> v;
+    //peek the next character without consuming it
     char peekChar()
     {
         if(!bufferCharLoaded)
@@ -31,6 +40,7 @@ class Scanner {
         }
         return bufferChar;
     }
+    //peek the next character and consume it
     char getChar()
     {
         if(!bufferCharLoaded)
@@ -43,11 +53,13 @@ class Scanner {
             line++;
         return bufferChar;
     }
+    //skip a line in program file, used to handle comments
     void skipLine()
     {
         while(!program.eof() && getChar() != '\n')
             ;
     }
+    //used to identify seperator characters
     bool isSeparator(char c)
     {
         if(c == '(' || c == ')' || c == '{' || c == '}' || c == ';' || c == ',')
@@ -58,6 +70,12 @@ class Scanner {
             return true;
         return false;
     }
+    //the DFA representing the lexer
+    //0 is the initial state
+    //1 is the state for integer literals
+    //2 is the state for identifiers and keywords
+    //once a identifier/keyword is generated, it is matched against the keyword table
+    //a string error is thrown in case the token generated is invalid or a bad symbol occurs
     int DFA(int state, string &token)
     {
         if(state == 0)
@@ -153,6 +171,7 @@ class Scanner {
         }
     }
     public:
+    //constructor for Scanner
     Scanner(string programFile)
     : line(1)
     , bufferCharLoaded(false)
@@ -166,6 +185,7 @@ class Scanner {
             {"print", 104}
         }
     {}
+    //used to get the next token
     tuple<int, string, int> getToken()
     {
         string token;
