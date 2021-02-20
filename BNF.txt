@@ -1,0 +1,53 @@
+C++++ in Backus-Naur Form
+<program> ::= <function-definition>
+            | <statement> <program>
+            | e
+
+<function-definition> ::= <type-specifier> <identifier> (<parameter-list>) <block-statement>
+
+<parameter-list> ::= e
+                    | <parameter> , <parameter-list>
+
+<parameter> ::=  <type-specifier> <function-declarator>                        
+ 
+                       
+<type-specifier> ::= int
+
+<function-declarator> ::= <identifier>
+                 |  <identifier> <assignment-expression>
+
+<assignment-expression> ::= <assignment-operator> <expression-statement>
+
+
+<expression-statement> ::=  <primary-expression>
+                          | <expression-statement> + <expression-statement>
+                          | <expression-statement> * <expression-statement>
+                          | <expression-statement> < <expression-statement>
+                          | !<expression-statement>
+                          | (<expression-statement>)
+
+<assignment-statement> ::= <identifier> <assignment-operator> <expression-statement> ;
+
+<primary-expression> ::= <identifier>
+                       | <integer-literal>
+
+<declaration> ::=  <type-specifier> <declarator> ;
+<declarator> ::= <identifier>
+                 |  <identifier> <assignment-expression>
+                 |  <declarator>, <declarator>
+
+<assignment-operator> ::= =
+
+
+<block-statement> ::= {  {<statement>}* }
+
+<statement> ::= <assignment-statement>
+              | <conditional-statement>
+              | <loop-statement>
+              | <declaration>
+                  
+
+<conditional-statement> ::= if ( <expression-statement> ) <block-statement>
+                        | if ( <expression-statement> ) <block-statement> else <block-statement>
+
+<loop-statement> ::= while ( <expression-statement> ) <block-statement>
