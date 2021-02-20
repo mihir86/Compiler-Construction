@@ -176,11 +176,11 @@ class Scanner {
     }
 };
 
-int32_t main()
+int32_t main(int argc, char **argv)
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    Scanner scanner("program.c++++");
+    Scanner scanner(argv[1]);
     while(true)
     {
         try {
@@ -188,8 +188,9 @@ int32_t main()
             int id, line;
             string s;
             tie(id, s, line) = token;
-            cout << "Token: " << id << " , String: " << s << " , Line number: " << line << "\n";            if(id == END)
+            if(id == END)
                 break;
+            cout << "Token: " << id << " , String: " << s << " , Line number: " << line << "\n";
         }
         catch(string error) {
             cout << error << "\n";
