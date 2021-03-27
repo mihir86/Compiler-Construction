@@ -1,3 +1,4 @@
 lexer
 lexer.exe
 dump/*
+build/*
