@@ -1,0 +1,2 @@
+ACCEPTED
+( program ( function ( def ) ( ( ) ( parameterList ( a ) ( , ) ( parameterList ( b ) ( , ) ( parameterList ( c ) ) ) ) ( ) ) ( { ) ( blockStatement ) ( } ) ) ( program ) )

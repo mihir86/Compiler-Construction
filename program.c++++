@@ -1,5 +1,3 @@
-if (a < b + c ) {
-    fkfkfkfkfkkfkf;
-    lsldldldlldldld;
-    papapappapapsppsd;
+def(a, b, c) {
+    
 }

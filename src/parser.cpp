@@ -24,6 +24,21 @@ Parser::Parser(char* fileName)
             // cout << id << " " << length << "\n";
         }
         is.close();
+
+        getString[130] = "identifier";
+        getString[131] = "integerLiteral";
+        getString[132] = "$";
+        getString[201] = "assignmentStatement";
+        getString[202] = "blockStatement";
+        getString[203] = "conditionalStatement";
+        getString[204] = "declarationStatement";
+        getString[205] = "expression";
+        getString[206] = "function";
+        getString[207] = "loopStatement";
+        getString[208] = "parameterList";
+        getString[209] = "program";
+        getString[210] = "program\'";
+        getString[211] = "statement";
     }
 
 void Parser::printTokens() {
@@ -54,14 +69,17 @@ tuple<int, string, int> Parser::getToken() {
 }
 
 void Parser::LR1() {
-    s.push({END, 0});
+    s.push({END, 0, new parseTreeNode("program\'")});
     int id, line;
     string str;
     tie(id, str, line) = getToken();
     // int i = 0;
     int flag = 1;
+    int _1, _2;
+    parseTreeNode* _3;
     while(true) {
-        int currentState = s.top().second;
+        tie(_1, _2, _3) = s.top();
+        int currentState = _2;
         if(parseTable.find({currentState, id}) != parseTable.end()) {
             string move = parseTable[{currentState, id}];
             if(move == "acc") {
@@ -82,23 +100,30 @@ void Parser::LR1() {
             // cout << currentState << " " << move << " " << newStateMove << "\n";
 
             if(move[0] == 's') {
-                s.push({id, newStateMove});
+                s.push({id, newStateMove, new parseTreeNode(str)});
                 tie(id, str, line) = getToken();
             }
             else if(move[0] == 'r') {
                 int id2, length2;
                 tie(id2, length2) = reduceTable[newStateMove];
+                parseTreeNode *newNode = new parseTreeNode(getString[id2]);
                 // cout << id2 << " " << length2 << "\n";
                 // break;
-                while(length2--)
+                while(length2--) {
+                    tie(_1, _2, _3) = s.top();
+                    newNode->addNode(_3);
+                    _3->correctOrder();
                     s.pop();
-                int newState = stoi(parseTable[{s.top().second, id2}]);
-                s.push({id2, newState});
+                }
+                tie(_1, _2, _3) = s.top();
+                int newState = stoi(parseTable[{_2, id2}]);
+                s.push({id2, newState, newNode});
             }
         }
         else {
             flag = 0;
-            int currentTop = s.top().first;
+            tie(_1, _2, _3) = s.top();
+            int currentTop = _1;
             cout << "Parser could not parse Line #" << line << "\n";
             // cout << currentTop << " " << id << "\n";
             while(!(currentTop == 202 
@@ -110,7 +135,8 @@ void Parser::LR1() {
                     || currentTop == LBRACE)) {
                 // cout << s.top().first << "\n";
                 s.pop();
-                currentTop = s.top().first;
+                tie(_1, _2, _3) = s.top();
+                currentTop = _1;
             }
                 // s.pop();
             while(true) {
@@ -164,4 +190,7 @@ void Parser::LR1() {
         }
         // i++;
     }
+    tie(_1, _2, _3) = s.top();
+    _3->correctOrder();
+    _3->printTree();
 }

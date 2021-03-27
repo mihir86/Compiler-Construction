@@ -16,9 +16,11 @@ class parseTreeNode {
         reverse(children.begin(), children.end());
     }
     void printTree() {
-        cout << "( " << token;
-        for(auto &k: children)
+        cout << "( " << token << " ";
+        for(auto &k: children) {
             k->printTree();
-        cout << " )";
+            cout << " ";
+        }
+        cout << ")";
     }
 };
