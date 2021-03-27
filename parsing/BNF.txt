@@ -1,0 +1,27 @@
+program' -> program
+program -> function program
+program -> statement program
+program -> ''
+function -> identifier ( parameterList ) { blockStatement }
+parameterList -> identifier , parameterList
+parameterList -> identifier
+assignmentStatement -> identifier = expression
+expression -> identifier
+expression -> integerLiteral
+expression -> expression * expression 
+expression -> expression + expression
+expression -> expression < expression
+expression -> ! expression
+expression -> ( expression )
+declarationStatement -> identifier , declarationStatement
+declarationStatement -> identifier
+conditionalStatement -> if ( expression ) { blockStatement }
+conditionalStatement -> if ( expression ) { blockStatement } else { blockStatement }
+loopStatement -> while ( expression ) { blockStatement }
+statement -> int declarationStatement ;
+statement -> assignmentStatement ;
+statement -> loopStatement
+statement -> conditionalStatement
+statement -> ;
+blockStatement -> statement blockStatement
+blockStatement -> ''

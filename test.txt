@@ -1,0 +1,5 @@
+int identifier , identifier , identifier ;
+
+identifier = identifier * identifier + identifier ;
+
+if ( identifier + identifier < integerLiteral ) { identifier = integerLiteral ; } else { identifier = integerLiteral ; identifier = identifier ; }
