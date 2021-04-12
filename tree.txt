@@ -1,1 +1,1 @@
-[ program [ statement [ ; ] ] [ program ] ]
+[ program [ statement [ assignmentStatement [ c ] [ = ] [ expression [ expression [ a ] ] [ + ] [ expression [ b ] ] ] ] [ $DUMMY_;$ ] ] [ program [ statement [ ; ] ] [ program ] ] ]

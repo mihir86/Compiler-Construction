@@ -146,7 +146,17 @@ void Parser::LR1() {
                 id = RPAREN; str = "$DUMMY_)$";
                 continue;
             }
-            if(parseTable.find({_2, SEMICOL}) != parseTable.end()) {
+            if(parseTable.find({_2, SEMICOL}) != parseTable.end() &&
+                    !(_1 == 201 
+                    || _1 == 202
+                    || _1 == 203
+                    || _1 == 204
+                    || _1 == 206
+                    || _1 == 207
+                    || _1 == 209
+                    || _1 == 210
+                    || _1 == 211
+                    || _1 == END)) {
                 cerr << "Performing Syntactical Error Recovery for ;\n";
                 errorStack.push({id, str, line});
                 id = SEMICOL; str = "$DUMMY_;$";
