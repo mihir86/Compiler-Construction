@@ -10,7 +10,7 @@ class Parser {
     map<int, pair<int, int>> reduceTable;
     stack<tuple<int, int, parseTreeNode*>> s;
     stack<tuple<int, string, int>> errorStack;
-    tuple<int, string, int> getToken();
+    tuple<int, string, int> getToken(int &flag);
     map<int, string> getString;
     public:
     Parser(char* fileName);

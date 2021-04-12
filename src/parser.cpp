@@ -59,22 +59,32 @@ void Parser::printTokens() {
     }
 }
 
-tuple<int, string, int> Parser::getToken() {
+tuple<int, string, int> Parser::getToken(int &flag) {
     if(!errorStack.empty()) {
         tuple<int, string, int> t = errorStack.top();
         errorStack.pop();
         return t;
     }
+    while(true) {
+        try {
+            tuple<int, string, int> t = scanner.getToken();
+            return t;
+        }
+        catch(string error) {
+            flag = 0;
+            cerr << error << " Removing it from the input!!!\n";
+        }
+    }
     return scanner.getToken();
 }
 
 void Parser::LR1() {
+    int flag = 1;
     s.push({END, 0, new parseTreeNode("program\'")});
     int id, line;
     string str;
-    tie(id, str, line) = getToken();
+    tie(id, str, line) = getToken(flag);
     // int i = 0;
-    int flag = 1;
     int _1, _2;
     parseTreeNode* _3;
     while(true) {
@@ -101,7 +111,7 @@ void Parser::LR1() {
 
             if(move[0] == 's') {
                 s.push({id, newStateMove, new parseTreeNode(str)});
-                tie(id, str, line) = getToken();
+                tie(id, str, line) = getToken(flag);
             }
             else if(move[0] == 'r') {
                 int id2, length2;
@@ -167,7 +177,7 @@ void Parser::LR1() {
             while(true) {
                 if(id == END || parseTable.find({_2, id}) != parseTable.end())
                     break;
-                tie(id, str, line) = getToken();
+                tie(id, str, line) = getToken(flag);
             }
 
             if(id == END) {
