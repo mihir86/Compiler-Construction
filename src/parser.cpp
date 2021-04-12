@@ -15,7 +15,7 @@ Parser::Parser(char* fileName)
         }
         is.close();
 
-        is = ifstream("reduceTable.txt");
+        is = ifstream("actionTable.txt");
         is >> n;
         for(int i = 0; i < n; i++) {
             int id, length;

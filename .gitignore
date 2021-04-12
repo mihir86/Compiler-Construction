@@ -1,4 +1,3 @@
-lexer
-lexer.exe
-dump/*
 build/*
+main
+main.exe

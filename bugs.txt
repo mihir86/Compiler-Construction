@@ -1,3 +1,0 @@
-remove int from function identifier
-
-statement -> ''
