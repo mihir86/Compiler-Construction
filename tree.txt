@@ -1,2 +1,1 @@
-ACCEPTED
-( program ( function ( def ) ( ( ) ( parameterList ( a ) ( , ) ( parameterList ( b ) ( , ) ( parameterList ( c ) ) ) ) ( ) ) ( { ) ( blockStatement ) ( } ) ) ( program ) )
+[ program [ statement [ conditionalStatement [ if ] [ ( ] [ expression [ expression [ a ] ] [ < ] [ expression [ 5 ] ] ] [ $DUMMY_)$ ] [ { ] [ blockStatement [ statement [ conditionalStatement [ if ] [ ( ] [ expression [ b ] ] [ ) ] [ { ] [ blockStatement ] [ } ] ] ] [ blockStatement ] ] [ $DUMMY_}$ ] ] ] [ program ] ]

@@ -84,9 +84,9 @@ void Parser::LR1() {
             string move = parseTable[{currentState, id}];
             if(move == "acc") {
                 if(flag)
-                    cout << "ACCEPTED\n";
+                    cerr << "ACCEPTED\n";
                 else
-                    cout << "REJECTED\n";
+                    cerr << "REJECTED\n";
                 break;
             }
 
@@ -123,31 +123,61 @@ void Parser::LR1() {
         else {
             flag = 0;
             tie(_1, _2, _3) = s.top();
+            cerr << "Parser could not parse Line #" << line << "\n";
+            if(parseTable.find({_2, RBRACE}) != parseTable.end()) {
+                cerr << "Performing Syntactical Error Recovery for }\n";
+                errorStack.push({id, str, line});
+                id = RBRACE; str = "$DUMMY_}$";
+                continue;
+            }
+            if(parseTable.find({_2, RPAREN}) != parseTable.end()) {
+                cerr << "Performing Syntactical Error Recovery for )\n";
+                errorStack.push({id, str, line});
+                id = RPAREN; str = "$DUMMY_)$";
+                continue;
+            }
+            if(parseTable.find({_2, SEMICOL}) != parseTable.end()) {
+                cerr << "Performing Syntactical Error Recovery for ;\n";
+                errorStack.push({id, str, line});
+                id = SEMICOL; str = "$DUMMY_;$";
+                continue;
+            }
+            cerr << "Entering Panic Recovery Mode\n";
             int currentTop = _1;
-            cout << "Parser could not parse Line #" << line << "\n";
             // cout << currentTop << " " << id << "\n";
-            while(!(currentTop == 202 
-                    || currentTop == 211
+            while(!(currentTop == 201 
+                    || currentTop == 202
+                    || currentTop == 203
+                    || currentTop == 204
+                    || currentTop == 206
+                    || currentTop == 207
                     || currentTop == 209
                     || currentTop == 210
-                    || currentTop == 206
-                    || currentTop == END
-                    || currentTop == LBRACE)) {
+                    || currentTop == 211
+                    || currentTop == END)) {
                 // cout << s.top().first << "\n";
                 s.pop();
+                // cout << _1 << "\n";
                 tie(_1, _2, _3) = s.top();
                 currentTop = _1;
             }
-                // s.pop();
+            // cout << "\n";
+            // break;
+
             while(true) {
-                if(id == END)
+                if(id == END || parseTable.find({_2, id}) != parseTable.end())
                     break;
-                if(id == SEMICOL || id == RBRACE) {
-                    tie(id, str, line) = getToken();
-                    // cout << line << " " << id << "###\n";
-                    break;
-                }
                 tie(id, str, line) = getToken();
+            }
+
+            if(id == END) {
+                while(!s.empty() && parseTable.find({_2, id}) == parseTable.end()) {
+                    s.pop();
+                    tie(_1, _2, _3) = s.top();
+                }
+                // if(s.empty()) {
+                //     s.push({END, 0, new parseTreeNode("program\'")});
+                // }
             }
             // cout << s.size() << " " << id << "\n";
             // break;
