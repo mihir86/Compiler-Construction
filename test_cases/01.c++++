@@ -1,5 +1,4 @@
 # start
-int x;
 x = 1;
 # a while loop
 while (x < 10) {

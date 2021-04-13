@@ -1,21 +1,30 @@
-Token: 100 , String: int , Line number: 2
-Token: 130 , String: x , Line number: 2
-Token: 114 , String: ; , Line number: 2
-Token: 130 , String: x , Line number: 3
-Token: 124 , String: = , Line number: 3
-Token: 131 , String: 1 , Line number: 3
-Token: 114 , String: ; , Line number: 3
-Token: 103 , String: while , Line number: 5
-Token: 110 , String: ( , Line number: 5
-Token: 130 , String: x , Line number: 5
-Token: 122 , String: < , Line number: 5
-Token: 131 , String: 10 , Line number: 5
-Token: 111 , String: ) , Line number: 5
-Token: 112 , String: { , Line number: 5
-Token: 130 , String: x , Line number: 6
-Token: 124 , String: = , Line number: 6
-Token: 130 , String: x , Line number: 6
-Token: 120 , String: + , Line number: 6
-Token: 131 , String: 1 , Line number: 6
-Token: 114 , String: ; , Line number: 6
-Token: 113 , String: } , Line number: 7
+ACCEPTED
+
+Generating Tree!!!
+#####################################
+[ program [ statement [ assignmentStatement [ x ] [ = ] [ expression [ 1 ] ] ] [ ; ] ] [ program [ statement [ loopStatement [ while ] [ ( ] [ expression [ expression [ x ] ] [ < ] [ expression [ 10 ] ] ] [ ) ] [ { ] [ blockStatement [ statement [ assignmentStatement [ x ] [ = ] [ expression [ expression [ x ] ] [ + ] [ expression [ 1 ] ] ] ] [ ; ] ] [ blockStatement ] ] [ } ] ] ] [ program ] ] ]
+                                                                                         program                                                                                                    
+                          __________________________________________________________________|_________________________                                                                               
+                         |                                                                                         program                                                                          
+                         |                                                                                  __________|_________________________________________________________________________     
+                         |                                                                             statement                                                                                |   
+                         |                                                                                 |                                                                                    |    
+                         |                                                                           loopStatement                                                                              |   
+                         |                       __________________________________________________________|______________________________________________________________________________      |    
+                         |                      |    |                 |                    |     |                                                    blockStatement                     |     |   
+                         |                      |    |                 |                    |     |                                              ____________|__________________          |     |    
+                         |                      |    |                 |                    |     |                                         statement                           |         |     |   
+                         |                      |    |                 |                    |     |                                _____________|______________________         |         |     |    
+                     statement                  |    |                 |                    |     |                        assignmentStatem                            |        |         |     |   
+                         |                      |    |                 |                    |     |                              ent                                   |        |         |     |   
+            _____________|_________________     |    |                 |                    |     |         ______________________|_____________                       |        |         |     |    
+    assignmentStatem                       |    |    |             expression               |     |        |          |                     expression                 |        |         |     |   
+          ent                              |    |    |                 |                    |     |        |          |                         |                      |        |         |     |   
+  _________|_______________________        |    |    |       __________|__________          |     |        |          |            _____________|____________          |        |         |     |    
+ |         |                   expression  |    |    |  expression     |      expression    |     |        |          |       expression        |        expression    |        |         |     |   
+ |         |                       |       |    |    |      |          |          |         |     |        |          |           |             |            |         |        |         |     |    
+ x         =                       1       ;  while  (      x          <          10        )     {        x          =           x             +            1         ;  blockStatement  }  program
+ |         |                       |       |    |    |      |          |          |         |     |        |          |           |             |            |         |        |         |     |    
+...       ...                     ...     ...  ...  ...    ...        ...        ...       ...   ...      ...        ...         ...           ...          ...       ...      ...       ...   ...  
+
+

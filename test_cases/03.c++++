@@ -1,9 +1,12 @@
 # start
-int x_ui9 = +1234;
-int y = 0;
-
-if (y<0)
-    y = y + 1;
-
-else
-    y=0
+x_ui9 = +1234;
+x = 0;
+a = 5
+b = 10; 
+if(a < b) {
+    a = b;
+}
+else {
+    x = 8;
+}
+x = 1;

@@ -1,6 +1,8 @@
-int a, b, 3x;
-a = 5 + 7x;
-b = 5 + x6;
-if(a < b) {
-    print(kakaka);
-}
+a = 4;
+fun(n){
+    if(n < 1){
+        n = 5;
+    }
+    else{
+        n = 10;
+    }
