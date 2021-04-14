@@ -6,5 +6,5 @@ int32_t main(int argc, char **argv)
     cin.tie(0);
     assert(argc == 2);
     Parser parser(argv[1]);
-    parser.LR1();
+    parser.LALR1();
 }

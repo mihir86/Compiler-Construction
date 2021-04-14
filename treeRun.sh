@@ -9,5 +9,8 @@ echo "#####################################"
 ./main program.c++++ > tree.txt
 echo ""
 
-cat tree.txt
+echo "Generating Tree!!!"
+echo "#####################################"
+python3 generateTree.py
 echo ""
+

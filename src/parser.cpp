@@ -79,7 +79,7 @@ tuple<int, string, int> Parser::getToken(int &flag) {
     return scanner.getToken();
 }
 
-void Parser::LR1() {
+void Parser::LALR1() {
     int flag = 1;
     s.push({END, 0, new parseTreeNode("program\'")});
     int id, line;
@@ -135,34 +135,34 @@ void Parser::LR1() {
             flag = 0;
             tie(_1, _2, _3) = s.top();
             cerr << "Parser could not parse Line #" << line << "\n";
-            if(parseTable.find({_2, RBRACE}) != parseTable.end()) {
-                cerr << "Performing Syntactical Error Recovery for }\n";
-                errorStack.push({id, str, line});
-                id = RBRACE; str = "$DUMMY_}$";
-                continue;
-            }
-            if(parseTable.find({_2, RPAREN}) != parseTable.end()) {
-                cerr << "Performing Syntactical Error Recovery for )\n";
-                errorStack.push({id, str, line});
-                id = RPAREN; str = "$DUMMY_)$";
-                continue;
-            }
-            if(parseTable.find({_2, SEMICOL}) != parseTable.end() &&
-                    !(_1 == 201 
-                    || _1 == 202
-                    || _1 == 203
-                    || _1 == 204
-                    || _1 == 206
-                    || _1 == 207
-                    || _1 == 209
-                    || _1 == 210
-                    || _1 == 211
-                    || _1 == END)) {
-                cerr << "Performing Syntactical Error Recovery for ;\n";
-                errorStack.push({id, str, line});
-                id = SEMICOL; str = "$DUMMY_;$";
-                continue;
-            }
+            // if(parseTable.find({_2, RBRACE}) != parseTable.end()) {
+            //     cerr << "Performing Syntactical Error Recovery for }\n";
+            //     errorStack.push({id, str, line});
+            //     id = RBRACE; str = "$DUMMY_}$";
+            //     continue;
+            // }
+            // if(parseTable.find({_2, RPAREN}) != parseTable.end()) {
+            //     cerr << "Performing Syntactical Error Recovery for )\n";
+            //     errorStack.push({id, str, line});
+            //     id = RPAREN; str = "$DUMMY_)$";
+            //     continue;
+            // }
+            // if(parseTable.find({_2, SEMICOL}) != parseTable.end() &&
+            //         !(_1 == 201 
+            //         || _1 == 202
+            //         || _1 == 203
+            //         || _1 == 204
+            //         || _1 == 206
+            //         || _1 == 207
+            //         || _1 == 209
+            //         || _1 == 210
+            //         || _1 == 211
+            //         || _1 == END)) {
+            //     cerr << "Performing Syntactical Error Recovery for ;\n";
+            //     errorStack.push({id, str, line});
+            //     id = SEMICOL; str = "$DUMMY_;$";
+            //     continue;
+            // }
             cerr << "Entering Panic Recovery Mode\n";
             int currentTop = _1;
             // cout << currentTop << " " << id << "\n";

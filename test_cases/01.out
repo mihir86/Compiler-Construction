@@ -1,3 +1,5 @@
+Running Program!!!
+#####################################
 ACCEPTED
 
 Generating Tree!!!
@@ -26,5 +28,3 @@ Generating Tree!!!
  x         =                       1       ;  while  (      x          <          10        )     {        x          =           x             +            1         ;  blockStatement  }  program
  |         |                       |       |    |    |      |          |          |         |     |        |          |           |             |            |         |        |         |     |    
 ...       ...                     ...     ...  ...  ...    ...        ...        ...       ...   ...      ...        ...         ...           ...          ...       ...      ...       ...   ...  
-
-

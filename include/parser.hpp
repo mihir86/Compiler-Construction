@@ -15,5 +15,5 @@ class Parser {
     public:
     Parser(char* fileName);
     void printTokens();
-    void LR1();
+    void LALR1();
 };
