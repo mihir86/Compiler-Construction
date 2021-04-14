@@ -1,1 +1,1 @@
-[ program [ statement [ assignmentStatement [ c ] [ = ] [ expression [ expression [ a ] ] [ + ] [ expression [ b ] ] ] ] [ $DUMMY_;$ ] ] [ program [ statement [ ; ] ] [ program ] ] ]
+[ program [ function [ abc ] [ ( ] [ parameterList [ a ] [ , ] [ parameterList [ b ] [ , ] [ parameterList [ c ] ] ] ] [ ) ] [ { ] [ blockStatement ] [ } ] ] [ program [ statement [ assignmentStatement [ c ] [ = ] [ expression [ abc ] [ ( ] [ argumentList [ a ] [ , ] [ argumentList [ d ] [ , ] [ argumentList [ 3 ] ] ] ] [ ) ] ] ] [ ; ] ] [ program ] ] ]

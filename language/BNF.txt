@@ -8,6 +8,11 @@ parameterList -> identifier
 assignmentStatement -> identifier = expression
 expression -> identifier
 expression -> integerLiteral
+expression -> identifier ( argumentList )
+argumentList -> identifier , argumentList
+argumentList -> integerLiteral , argumentList
+argumentList -> identifier
+argumentList -> integerLiteral
 expression -> expression * expression 
 expression -> expression + expression
 expression -> expression < expression

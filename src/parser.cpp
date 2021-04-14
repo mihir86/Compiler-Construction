@@ -39,6 +39,7 @@ Parser::Parser(char* fileName)
         getString[209] = "program";
         getString[210] = "program\'";
         getString[211] = "statement";
+        getString[212] = "argumentList";
     }
 
 void Parser::printTokens() {

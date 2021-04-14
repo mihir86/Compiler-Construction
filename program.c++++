@@ -1,1 +1,5 @@
-c = a + b a;
+abc(a, b, c) {
+
+}
+
+c = abc(a, d, 3);
