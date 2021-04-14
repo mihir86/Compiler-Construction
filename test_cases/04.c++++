@@ -1,11 +1,10 @@
-# start
-int X1 = 124+1234;
-int y = 0;
+y = 0;
 
-while (!y){
-    if (y<0)
+while (!y{
+    if (y<0){
         y = y + 1;
-
-    else
-        y=145a;
+    }
+    else{
+        y = y*145;
+    }
 }

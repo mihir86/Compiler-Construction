@@ -1,34 +1,32 @@
-Token: 130 , String: inti , Line number: 1
-Token: 130 , String: X1 , Line number: 1
-Token: 124 , String: = , Line number: 1
-Token: 131 , String: 124 , Line number: 1
-Token: 120 , String: + , Line number: 1
-Token: 131 , String: 1234 , Line number: 1
-Token: 114 , String: ; , Line number: 1
-Token: 100 , String: int , Line number: 2
-Token: 130 , String: z , Line number: 2
-Token: 124 , String: = , Line number: 2
-Token: 130 , String: a5 , Line number: 2
-Token: 114 , String: ; , Line number: 2
-Error, arhfd% is not a valid identifier!!!
-Token: 124 , String: = , Line number: 3
-Token: 131 , String: 1 , Line number: 3
-Token: 130 , String: whle , Line number: 5
-Token: 110 , String: ( , Line number: 5
-Token: 123 , String: ! , Line number: 5
-Token: 130 , String: y , Line number: 5
-Token: 111 , String: ) , Line number: 5
-Token: 112 , String: { , Line number: 5
-Token: 101 , String: if , Line number: 6
-Token: 110 , String: ( , Line number: 6
-Token: 130 , String: y , Line number: 6
-Token: 122 , String: < , Line number: 6
-Token: 131 , String: 0 , Line number: 6
-Token: 111 , String: ) , Line number: 6
-Token: 130 , String: y , Line number: 7
-Token: 124 , String: = , Line number: 7
-Token: 130 , String: y , Line number: 7
-Token: 120 , String: + , Line number: 7
-Token: 131 , String: 1 , Line number: 7
-Token: 114 , String: ; , Line number: 7
-Token: 113 , String: } , Line number: 8
+Parser could not parse Line #5
+Performing Syntactical Error Recovery for }
+REJECTED
+
+Generating Tree!!!
+#####################################
+[ program [ statement [ assignmentStatement [ a ] [ = ] [ expression [ 5 ] ] ] [ ; ] ] [ program [ statement [ assignmentStatement [ a ] [ = ] [ expression [ expression [ a ] ] [ * ] [ expression [ 5 ] ] ] ] [ ; ] ] [ program [ statement [ conditionalStatement [ if ] [ ( ] [ expression [ expression [ a ] ] [ < ] [ expression [ 25 ] ] ] [ ) ] [ { ] [ blockStatement [ statement [ assignmentStatement [ a ] [ = ] [ expression [ 52 ] ] ] [ ; ] ] [ blockStatement ] ] [ $DUMMY_}$ ] [ else ] [ { ] [ blockStatement [ statement [ assignmentStatement [ a ] [ = ] [ expression [ 4 ] ] ] [ ; ] ] [ blockStatement ] ] [ } ] ] ] [ program ] ] ] ]
+                                                                                                                                          program                                                                                                                                                                                      
+                          ___________________________________________________________________________________________________________________|___________                                                                                                                                                                               
+                         |                                                                                                                            program                                                                                                                                                                          
+                         |                                                  _____________________________________________________________________________|_____________________________________________________________________                                                                                                         
+                         |                                                 |                                                                                                                                                program                                                                                                    
+                         |                                                 |                                                                                                                                    _______________|___________________________________________________________________________________________________     
+                         |                                                 |                                                                                                                               statement                                                                                                               |   
+                         |                                                 |                                                                                                                                   |                                                                                                                   |    
+                         |                                                 |                                                                                                                            conditionalState                                                                                                           |   
+                         |                                                 |                                                                                                                                  ment                                                                                                                 |   
+                         |                                                 |                       ____________________________________________________________________________________________________________|_____________________________________________________________________________________________________________      |    
+                         |                                             statement                  |   |                 |                    |     |                                     blockStatement                                     |      |    |                                 blockStatement                     |     |   
+                         |                                    _____________|__________________    |   |                 |                    |     |                                ___________|_______________________________             |      |    |                            ___________|__________________          |     |    
+                     statement                        assignmentStatem                        |   |   |                 |                    |     |                           statement                                       |            |      |    |                       statement                          |         |     |   
+                         |                                  ent                               |   |   |                 |                    |     |                               |                                           |            |      |    |                           |                              |         |     |   
+            _____________|_________________     _____________|_____________                   |   |   |                 |                    |     |                  _____________|___________________________                |            |      |    |              _____________|_____________________         |         |     |    
+    assignmentStatem                       |   |   |                   expression             |   |   |             expression               |     |          assignmentStatem                                 |               |            |      |    |      assignmentStatem                           |        |         |     |   
+          ent                              |   |   |                       |                  |   |   |                 |                    |     |                ent                                        |               |            |      |    |            ent                                  |        |         |     |   
+  _________|_______________________        |   |   |          _____________|__________        |   |   |       __________|__________          |     |      ___________|_________________________                |               |            |      |    |    _________|_________________________          |        |         |     |    
+ |         |                   expression  |   |   |     expression        |      expression  |   |   |  expression     |      expression    |     |     |           |                     expression          |               |            |      |    |   |         |                     expression    |        |         |     |   
+ |         |                       |       |   |   |         |             |          |       |   |   |      |          |          |         |     |     |           |                         |               |               |            |      |    |   |         |                         |         |        |         |     |    
+ a         =                       5       ;   a   =         a             *          5       ;   if  (      a          <          25        )     {     a           =                         52              ;         blockStatement $DUMMY_}$ else  {   a         =                         4         ;  blockStatement  }  program
+ |         |                       |       |   |   |         |             |          |       |   |   |      |          |          |         |     |     |           |                         |               |               |            |      |    |   |         |                         |         |        |         |     |    
+...       ...                     ...     ... ... ...       ...           ...        ...     ... ... ...    ...        ...        ...       ...   ...   ...         ...                       ...             ...             ...          ...    ...  ... ...       ...                       ...       ...      ...       ...   ...  
+
